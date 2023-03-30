@@ -1,6 +1,8 @@
+/* It fetches data from a URL and passes the loading state and data to its children */
 import React, {Component} from "react"
 
 class DataFetcher extends Component {
+    /* Setting the initial state of the component. */
     state = {
         loading: false,
         data: null
@@ -10,7 +12,7 @@ class DataFetcher extends Component {
         this.setState({loading: true})
         fetch(this.props.url)
             .then(res => res.json())
-            .then(data => this.setState({data: data, loading: false}))
+            .then(data => this.setState({loading: false, data}))
     }
     
     render() {
